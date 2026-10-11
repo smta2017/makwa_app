@@ -1,0 +1,348 @@
+:root{
+	--f2: Helvetica Neue;
+	--f3: Helvetica;
+	--color: #2AABE1;
+}
+body{
+	margin: 0;
+}
+@font-face {
+  font-family: --f1;
+  src: url(/fonts/LeagueSpartan-Bold.otf);
+}
+.header {
+    height: 200px;
+    background-image: url(/images/invoice/header.png);
+	width: 100%;
+}
+.content {
+	width: 70%;
+	margin: 0 auto;
+}
+.welcome {
+	position: relative;
+	margin-bottom: 80px;
+}
+.welcome h4 {
+	font-family: --f1;
+	margin-top: 50px;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 50px;
+	margin-bottom: 0;
+	color: var(--color);
+
+}
+.welcome h4 .order-number {
+	color: black;
+}
+.welcome .logo {
+	position: absolute;
+    right: 0;
+    height: 100px;
+    top: 0;
+}
+.invoice-info {
+  	min-height: 100%;
+  	display: flex;
+  	flex-wrap: wrap;
+  	flex-direction: row;
+  	margin-bottom: 20px;
+}
+.invoice-info > div {
+  	display: flex; 
+  	flex-basis: calc(40%);  
+  	justify-content: flex-start;
+  	flex-direction: column;
+}
+
+.invoice-info > div > div {
+  	display: flex;
+  	justify-content: flex-start;
+  	flex-direction: row;
+}
+.invoice-info .box .title{
+	font-weight: bold;
+	font-family: var(--f2);
+	font-size: 22px;
+	color: var(--color);
+}
+.invoice-info .box p{
+	font-weight: normal;
+	font-family: var(--f2);
+	font-size: 22px;
+	margin-top: auto;
+    margin-bottom: 0;
+}
+.invoice-info .box{
+	margin-bottom: 25px;
+}
+.divider{
+	height: 3px;
+	width: 100%;
+	background-color: var(--color); 
+}
+.item.heading {
+    margin: 2px 0px;
+    align-items: center;
+    padding: 0 30px;
+}
+.item.heading div {
+    font-size: 18px !important;
+}
+.mb-20 {
+	margin-bottom: 20px;
+}
+.section{
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+.section .title{
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: var(--color);
+	font-family: --f1;
+    margin-left: 30px;
+}
+.section-divider-one{
+	height: 1px;
+	width: 100%;
+	background-color: #707070;
+	opacity: 50%;
+}
+.section-divider-two{
+	height: 0px;
+	width: 100%;
+	border-bottom: 1px dashed;
+	border-color: #707070;
+	opacity: 50%;
+}
+.section .items {
+ 	min-height: 100%;
+  	display: flex;
+  	flex-wrap: wrap;
+  	flex-direction: row;
+  	margin-bottom: 20px;
+  	margin-top: 20px;
+    padding: 0 30px;
+}
+.section .items > .item {
+    display: flex;
+    flex-basis: calc(100%);
+    justify-content: flex-start;
+    flex-direction: row;
+    line-height: 30px;
+}
+
+.section .items > .item > div {
+  	display: flex;
+  	justify-content: flex-start;
+  	flex-direction: row;
+  	flex-basis: calc(50%);
+  	font-size: 22px;
+  	font-weight: normal;
+  	font-family: var(--f2);
+    align-items: center;
+}
+.section .items .item div img {
+    width: 100px;
+    height: 100px;
+}
+.section .items .item div .title .name {
+	font-size: 25px;
+	font-family: var(--f2);
+	color: black;
+}
+.section .items .item div .title .color-box {
+    width: 60px;
+    height: 30px;
+}
+.section .items .section-divider-two {
+	margin: 10px 0;
+}
+.section .item .item-to-view{
+	color: var(--color);
+}
+.footer {
+	margin-top: 180px;
+}
+.footer .copyright {
+	text-align: center;
+}
+.footer .copyright p {
+	font-family: var(--f3);
+	font-size: 18px;
+	text-align: center;
+}
+.footer .social-media {
+  	display: flex;
+  	justify-content: center;
+}
+.footer .social-media a {
+    background: var(--color);
+    padding: 10px;
+    border-radius: 50% !important;
+    height: 35px;
+    width: 35px;
+    line-height: 30px;
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+.footer .social-media a img {
+	height: 25px;
+}
+.image-modal {
+    z-index: 9;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #70707050;
+    display: none;
+}
+.image-modal .img-container {
+    width: 450px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+    top: 50px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.image-modal .img-container .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.image-modal .img-container .info .name {
+	font-family: --f1;
+	color: var(--color);
+	font-size: 50px;
+}
+.image-modal .img-container .info .order {
+	font-family: --f1;
+	color: var(--color);
+	font-size: 25px;
+}
+.image-modal .img-container .info .order span {
+	color: black;
+}
+.image-modal .img-container img {
+    height: 100%;
+}
+@media only screen and (max-width: 1024px) {
+	.content{
+		width: 80%;
+		margin: 0 auto;
+	}
+	.section .items .item div img {
+	    width: 80px;
+	    height: 80px;
+	}
+	.section .title {
+	    margin-left: 10px;
+	}
+	.section .items {
+	    padding: 0 20px;
+	}
+	.section .items .item div .title .color-box {
+	    width: 50px;
+	    height: 25px;
+	}
+	.image-modal .img-container {
+	    width: 420px;
+	}
+}
+@media only screen and (max-width: 850px) {
+	.content{
+		width: 87%;
+		margin: 0 auto;
+	}
+	.section .items .item div img {
+	    width: 65px;
+	    height: 65px;
+	}
+	.section .title {
+	    margin-left: 8px;
+	}
+	.section .items {
+	    padding: 0 15px;
+	}
+	.section .items .item div .title .name {
+	    font-size: 20px;
+	}
+	.section .items .item div .title .color-box {
+	    width: 50px;
+	    height: 20px;
+	}
+	.image-modal .img-container {
+	    width: 400px;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.content{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.invoice-info > div {
+	    flex-basis: calc(50%);
+	}
+	.section .items .item div .title .color-box {
+	    width: 40px;
+	    height: 20px;
+	}
+
+	.section .items .item div img {
+	    width: 50px;
+	    height: 50px;
+	}
+	.section .title {
+	    margin-left: 5px;
+	}
+	.section .items {
+	    padding: 0 10px;
+	}
+	.section .items .item div .title .name {
+	    font-size: 18px;
+	}
+	.image-modal .img-container {
+	    width: 350px;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.content{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.invoice-info > div {
+	    flex-basis: calc(100%);
+	}
+	.image-modal .img-container {
+	    width: 400px;
+    	margin-left: -220px;
+	}
+}
+@media only screen and (max-width: 400px) {
+	.image-modal .img-container {
+	    width: 300px;
+    	margin-left: -170px;
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	.image-modal .img-container {
+	    width: 200px;
+    	margin-left: -120px;
+	}
+}

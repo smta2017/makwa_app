@@ -1,0 +1,43 @@
+name: MAKWA System CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: ['7.4', '8.0', '8.1']
+
+    name: P${{ matrix.php-version }} - PHPUnit Tests
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, dom, fileinfo, sqlite3, pdo_sqlite, gd
+        coverage: none
+
+    - name: Copy .env.example
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+    - name: Install Dependencies
+      run: composer install --prefer-dist --no-interaction --no-progress
+
+    - name: Generate App Key
+      run: php artisan key:generate
+
+    - name: Run Syntax Checks
+      run: |
+        find app/ -name "*.php" -exec php -l {} \;
+
+    - name: Execute Tests via PHPUnit
+      run: ./vendor/bin/phpunit --filter SecurityRemediationTest

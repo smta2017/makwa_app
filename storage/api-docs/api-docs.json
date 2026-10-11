@@ -1,0 +1,4088 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "L7 OpenApi Makwa",
+        "description": "Makwa Api's documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "{schema}://dev.makwaapp.com/api/V1/{lang}",
+            "description": "dev",
+            "variables": {
+                "schema": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "https"
+                },
+                "lang": {
+                    "enum": [
+                        "en",
+                        "ar"
+                    ],
+                    "default": "en"
+                }
+            }
+        },
+        {
+            "url": "{schema}://makwaapp.com/api/V1/{lang}",
+            "description": "Live",
+            "variables": {
+                "schema": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "https"
+                },
+                "lang": {
+                    "enum": [
+                        "en",
+                        "ar"
+                    ],
+                    "default": "en"
+                }
+            }
+        },
+        {
+            "url": "{schema}://test.makwaapp.com/api/V1/{lang}",
+            "description": "test",
+            "variables": {
+                "schema": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "https"
+                },
+                "lang": {
+                    "enum": [
+                        "en",
+                        "ar"
+                    ],
+                    "default": "en"
+                }
+            }
+        },
+        {
+            "url": "{schema}://makwa.test/api/V1/{lang}",
+            "description": "Local",
+            "variables": {
+                "schema": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "http"
+                },
+                "lang": {
+                    "enum": [
+                        "en",
+                        "ar"
+                    ],
+                    "default": "en"
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/faqs-terms-policy": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get custom links Details",
+                "operationId": "App\\Http\\Controllers\\Api\\Admin\\AdminController::faqstermspolicy",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/update_app": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Notify Us With app version",
+                "operationId": "App\\Http\\Controllers\\Api\\Customer\\CustomerLocationController::update_app_sssss",
+                "parameters": [
+                    {
+                        "name": "app_ver",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/sms/send-pin": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Send SMS Verification Pin",
+                "operationId": "App\\Http\\Controllers\\Api\\Helper\\SMSHelperController::sendSMSVerificationPin",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/sms/confirm-pin": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "confirm SMS Verification Pin",
+                "operationId": "App\\Http\\Controllers\\Api\\Helper\\SMSHelperController::confirmSMSVerficationPin",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "verification_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customer-addresses": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get All Customer Addresses",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\CustomerAddress\\CustomerAddressController::index",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Add New Address For Customer",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\CustomerAddress\\CustomerAddressController::store",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "building_no",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "street_address",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    },
+                    {
+                        "name": "floor_no",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "apartment_no",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "additional_directions",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "phone_number",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "landline",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "building_type",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customer-addresses/{id}": {
+            "delete": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Remove Customer Address",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\CustomerAddress\\CustomerAddressController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customer-addresses/{id}/default": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set Customer Address As Default",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\CustomerAddress\\CustomerAddressController::setDefault",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/login": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Login Customer",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "firebase_token",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/register": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Register Customer",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::register",
+                "parameters": [
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "firebase_token",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/login/facebook": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Customer Login With Facebook",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::redirectToFacebook",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 22
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "firebase_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/login/google": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Customer Login With Google",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::redirectToGoogle",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "firebase_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/login/apple": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Customer Login With Apple",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::redirectToApple",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 22
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "firebase_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 200
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/me": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Current login Customer Info",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::me",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/logout": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Current login Customer Info",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::logout",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/login/refresh-token": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Refresh Token Api",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\AuthController::refresh",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/orders": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Customer Orders",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::customerOrders",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/email": {
+            "put": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Update Customer Email",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::changeEmail",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/password": {
+            "put": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Update Customer Password",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::changePass",
+                "parameters": [
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "current_password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/phone": {
+            "put": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Update Customer phone",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::changePhone",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/info": {
+            "put": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Update Customer Account Info",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::changeInfo",
+                "parameters": [
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "d_o_b",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/favourit-vendor": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Customer Favourit Vendors",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::favouritVendors",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/vendor-like": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set like Vendor",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::addFavouritVendor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/vendor-dislike": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Unset like Vendor",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::removeFavouritVendor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/notifications": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get All Customer Notifications",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::notifications",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/unread-notifications": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Un-Read Customer Notifications",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::unreadNotifications",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/notifications/{id}/mark-read": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "mark As Read Customer Notifications",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::markAsRead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/forget-password": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Forget Customer Password.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::forgotPassword",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/suspens_account": {
+            "delete": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Customer Account Suspension",
+                "description": "Display the specified resource.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::suspens_account",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/notify_location": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Guest Notify location",
+                "description": "Display the specified resource.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::notifyLocation",
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "long",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "region",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/customers/disable-notification": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set Customer Desable Notification",
+                "description": "Display the specified resource.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::disableNotification",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/customers/adjustment": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set Customer Desable Notification",
+                "description": "Display the specified resource.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Customer\\CustomerController::adjustment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "email": "smta0@yahoo.com",
+                                    "phone": "012222222",
+                                    "country_code": "+20"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/settings": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "General App Settings",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\HomeController::generalSettings",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/locations/check-location": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Location.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Location\\LocationController::checkLocationCoverage",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 25
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 30
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Add New Order",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Order\\OrderController::store",
+                "parameters": [
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "method_of_payment",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "cash",
+                                "card"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "selected_card",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "promo_code",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "customer_notes",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "is_express",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "customised_preference": {
+                                        "products": [
+                                            {
+                                                "product_id": 1,
+                                                "folded": false
+                                            },
+                                            {
+                                                "product_id": 2,
+                                                "folded": true
+                                            }
+                                        ],
+                                        "general": [
+                                            {
+                                                "id": 1,
+                                                "allow": true
+                                            },
+                                            {
+                                                "id": 2,
+                                                "allow": false
+                                            }
+                                        ]
+                                    },
+                                    "service_tag_id": [
+                                        1,
+                                        3,
+                                        4
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Order Details",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Order\\OrderController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Update Order",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Order\\OrderController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "method_of_payment",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "cash",
+                                "card"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "selected_card",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "promo_code",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "customer_notes",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "query",
+                        "required": false,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "customised_preference": {
+                                        "products": [
+                                            {
+                                                "product_id": 1,
+                                                "folded": false
+                                            },
+                                            {
+                                                "product_id": 2,
+                                                "folded": true
+                                            }
+                                        ],
+                                        "general": [
+                                            {
+                                                "id": 1,
+                                                "allow": true
+                                            },
+                                            {
+                                                "id": 2,
+                                                "allow": false
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/orders/{id}/cancel": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Cancel Order.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Order\\OrderController::cancelOrder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/login": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Login Affiliate",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/affiliates/customers": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Add New Customer",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::storeCustomer",
+                "parameters": [
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "xxxxxxxxxxx",
+                            "maxLength": 16
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/check-location": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Check Location Coverage.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::checkLocationCoverage",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 25
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 25
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/customer-address": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Add New Address For Customer (Coverage)",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::storeCustomerAddress",
+                "parameters": [
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "type_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "1",
+                                "2",
+                                "3"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "building_no",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "street_address",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "floor_no",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "apartment_no",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "additional_directions",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/pickup-slots": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get Pickup Time Slots.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::getPickupSlots",
+                "parameters": [
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/delivery-slots": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get Delivery Time Slots.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::getDeliverySlots",
+                "parameters": [
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_slot",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/orders": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Add New Order",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::storeOrder",
+                "parameters": [
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "address_id",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "method_of_payment",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "cash",
+                                "card"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "pickup_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "pickup_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_date",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_start",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_end",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "promo_code",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "customised_preference",
+                        "in": "query",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get Order Details",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::showOrder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/customers/{id}/orders": {
+            "get": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Get customer Orders",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::customerOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/affiliates/orders/{id}/cancel": {
+            "post": {
+                "tags": [
+                    "Affiliates"
+                ],
+                "summary": "Cancel Order",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Other\\AffiliateController::cancelOrder",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/popups": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Ppopups.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\PopupController::index",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/preference/get-preference": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Products Preferences.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Preference\\PreferenceController::getPreference",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/preference/customer-preference": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set Customer preference",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Preference\\PreferenceController::customerPreference",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "products": [
+                                        {
+                                            "product_id": 1,
+                                            "folded": true
+                                        },
+                                        {
+                                            "product_id": 2,
+                                            "folded": true
+                                        }
+                                    ],
+                                    "general": [
+                                        {
+                                            "id": 1,
+                                            "allow": true
+                                        },
+                                        {
+                                            "id": 2,
+                                            "allow": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/promotions/{name}/check": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Check Promotion Validate",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Promotion\\PromotionController::checkPromoCode",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/service-tags": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Service tags.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Service\\ServiceController::index",
+                "responses": {
+                    "200": {
+                        "description": "A list with service tags",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/services/location-categories": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Services Categories In Location.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Service\\ServiceController::getLocationServices",
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/sliders": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Sliders.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\SLider\\SliderController::show",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/sliders/details/{id}": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Slider Details.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\SLider\\SliderController::getSliderDetails",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/timeslots/pickup-slots": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Pickup Time Slots.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\TimeSlot\\TimeSlotController::getPickupSlots",
+                "parameters": [
+                    {
+                        "name": "vendor_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/timeslots/delivery-slots": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Delivery Time Slots.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\TimeSlot\\TimeSlotController::getDeliverySlots",
+                "parameters": [
+                    {
+                        "name": "pickup_slot",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "express",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "iron",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "clean",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "vendor_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/vendors/{id}": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Vendor Details.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/vendors/location-vendors": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Vendors In Location.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::getLocationVendors",
+                "parameters": [
+                    {
+                        "name": "location_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "service_category",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    },
+                    {
+                        "name": "free_delivery",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "new",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "offers",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "pickup_slot",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "delivery_slot",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    },
+                    {
+                        "name": "express",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                "0",
+                                "1"
+                            ]
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "services_tags": [
+                                        1,
+                                        2,
+                                        3
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/vendors/{id}/rate": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Add New Vendor Rating.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::createVendorRating",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 255
+                        }
+                    },
+                    {
+                        "name": "body",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 300
+                        }
+                    },
+                    {
+                        "name": "customer_service_rating",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "quality_rating",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "friendly_rating",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "pricing_rating",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 5
+                        }
+                    },
+                    {
+                        "name": "rating",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 4
+                        }
+                    },
+                    {
+                        "name": "recommend",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 5,
+                            "enum": [
+                                "Yes",
+                                "No"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "order_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "divided_rating": [
+                                        {
+                                            "rate_id": 1,
+                                            "value": 3
+                                        },
+                                        {
+                                            "rate_id": 2,
+                                            "value": 4
+                                        },
+                                        {
+                                            "rate_id": 3,
+                                            "value": 5
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/vendors/filter-attributes": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Filter Attributes.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::filterAttr",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/vendors/rating-attributes": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Rating Attributes.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::ratingAttr",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/vendors/{id}/packags": {
+            "get": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Vendor Packags.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Vendor\\VendorController::getPackags",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "style": "form",
+                        "schema": {
+                            "type": "integer",
+                            "maxLength": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/wallet/customer/fund": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Add Customer Wallet Funds.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Wallet\\WalletController::fundWallet",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "card_token": "5248ad66ae6dfc64e7b0f0155fc8ca8e612d70e434a3042212d309d1",
+                                    "amount": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/wallet/customer/balance": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Customer Wallet Balance.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Wallet\\WalletController::balance",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/wallet/customer/transactions": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Customer Wallet Transactions.",
+                "operationId": "App\\Http\\Controllers\\Api\\V1\\Wallet\\WalletController::transactions",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/payment/add-new-card": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Adding New Card for Customer.",
+                "operationId": "App\\Http\\Controllers\\payment2\\paymentController::addNewCard",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/payment/customer-cards": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Get Customer Cards.",
+                "operationId": "App\\Http\\Controllers\\payment2\\paymentController::customerCards",
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/payment/set-card-default": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Set Customer Card To Default",
+                "operationId": "App\\Http\\Controllers\\payment2\\paymentController::setCardDefault",
+                "parameters": [
+                    {
+                        "name": "card_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/payment/remove-card": {
+            "post": {
+                "tags": [
+                    "Makwa"
+                ],
+                "summary": "Remove Customer Card",
+                "operationId": "App\\Http\\Controllers\\payment2\\paymentController::removeCard",
+                "parameters": [
+                    {
+                        "name": "card_token",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with products",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid tag value"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Makwa",
+            "description": "Access to Makwa End-points"
+        },
+        {
+            "name": "Affiliates",
+            "description": "Access to Affilialtes End-points"
+        }
+    ]
+}

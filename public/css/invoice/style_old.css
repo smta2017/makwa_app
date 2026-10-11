@@ -1,0 +1,245 @@
+:root{
+	--f2: Helvetica Neue;
+	--f3: Helvetica;
+	--color: #2AABE1;
+}
+body{
+	margin: 0;
+}
+@font-face {
+  font-family: --f1;
+  src: url(/fonts/LeagueSpartan-Bold.otf);
+}
+.header{
+    height: 200px;
+    background-image: url(/images/invoice/header.png);
+	width: 100%;
+}
+.content{
+	width: 60%;
+	margin: 0 auto;
+}
+.welcome h4{
+	font-family: --f1;
+	margin-top: 50px;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 50px;
+	margin-bottom: 0;
+	color: var(--color);
+
+}
+.welcome p{
+	font-family: var(--f2);
+	font-size: 27px;
+	line-height: 41px;
+	margin-top: 0;
+	margin-bottom: 50px;
+}
+.invoice-info {
+  	min-height: 100%;
+  	display: flex;
+  	flex-wrap: wrap;
+  	flex-direction: row;
+  	margin-bottom: 20px;
+}
+.invoice-info > div {
+  	display: flex; 
+  	flex-basis: calc(50%);  
+  	justify-content: flex-start;
+  	flex-direction: column;
+}
+
+.invoice-info > div > div {
+  	display: flex;
+  	justify-content: flex-start;
+  	flex-direction: row;
+}
+.invoice-info .box .title{
+	font-weight: bold;
+	font-family: var(--f2);
+	font-size: 22px;
+	color: var(--color);
+}
+.invoice-info .box p{
+	font-weight: normal;
+	font-family: var(--f2);
+	font-size: 22px;
+	margin-top: auto;
+    margin-bottom: 0;
+}
+.invoice-info .box{
+	margin-bottom: 25px;
+}
+.divider{
+	height: 3px;
+	width: 100%;
+	background-color: var(--color); 
+}
+.section{
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+.section .title{
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: var(--color);
+	font-family: --f1;
+    margin-left: 30px;
+}
+.section-divider-one{
+	height: 1px;
+	width: 100%;
+	background-color: #707070; 
+}
+.section-divider-two{
+	height: 0px;
+	width: 100%;
+	border-bottom: 1px dashed;
+	border-color: #707070; 
+}
+.section .items {
+ 	min-height: 100%;
+  	display: flex;
+  	flex-wrap: wrap;
+  	flex-direction: row;
+  	margin-bottom: 20px;
+  	margin-top: 20px;
+}
+.section .items > .item {
+    display: flex;
+    flex-basis: calc(100%);
+    justify-content: flex-start;
+    flex-direction: row;
+    line-height: 30px;
+}
+
+.section .items > .item > div {
+  	display: flex;
+  	justify-content: center;
+  	flex-direction: row;
+  	flex-basis: calc(50%);
+  	font-size: 22px;
+  	font-weight: normal;
+  	font-family: var(--f2);
+}
+.totals {
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+.totals > div {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: column;
+    line-height: 30px;
+    align-items: flex-start;
+}
+
+.totals > div > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-basis: calc(10);
+    font-size: 22px;
+    font-weight: normal;
+    font-family: var(--f2);
+}
+.totals > div > div.title {
+	font-family: var(--f3);
+    font-size: 25px;
+}
+.totals > div > div.total {
+	font-family: --f1;
+    font-size: 25px;
+}
+.totals > div:first-child {
+    margin-right: 100px;
+}
+.totals > div > div.section-divider-one {
+	margin-top: 10px;
+	margin-bottom: 10px;
+    flex-basis: auto;
+}
+.order-notes {
+	margin-top: 150px;
+    text-align: center;
+}
+.order-notes button {
+	font-family: --f1;
+	font-size: 18px;
+	color: white;
+	background-color: var(--color);
+	border-radius: 25px;
+	border: 0px;
+	padding: 15px 35px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.order-notes p {
+	font-family: var(--f3);
+	font-size: 22px;
+}
+.footer {
+	margin-top: 120px;
+}
+.footer .copyright {
+	text-align: center;
+}
+.footer .copyright p {
+	font-family: var(--f3);
+	font-size: 18px;
+	text-align: center;
+}
+.footer .social-media {
+  	display: flex;
+  	justify-content: center;
+}
+.footer .social-media a {
+    background: var(--color);
+    padding: 10px;
+    border-radius: 50% !important;
+    height: 35px;
+    width: 35px;
+    line-height: 30px;
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+.footer .social-media a img {
+	height: 25px;
+}
+@media only screen and (max-width: 850px) {
+	.content{
+		width: 80%;
+		margin: 0 auto;
+	}
+	.totals > div:first-child {
+	    margin-right: 50px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.content{
+		width: 90%;
+		margin: 0 auto;
+	}
+	.totals > div:first-child {
+	    margin-right: 30px;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.content{
+		width: 95%;
+		margin: 0 auto;
+	}
+	.totals > div:first-child {
+	    margin-right: 15px;
+	}
+}
